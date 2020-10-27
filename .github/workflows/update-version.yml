@@ -25,12 +25,11 @@ jobs:
           dotnet-version: 5.0.100-rc.2.20479.15
       - name: Build with dotnet
         run: dotnet build src/System.Runtime.TimeZoneData /t:CheckVersion 
-#       - name: Edit XML
-#         uses: Mudlet/xmlstarlet-action@v1.1
       - name: Read version
         id: version
         uses: juliangruber/read-file-action@v1
         with:
           path: ./src/System.Runtime.TimeZoneData/data/version
-      - name: Set version from file
-        run: echo ${{ steps.version.outputs.content }}            
+      - name: Edit XML
+        uses: Mudlet/xmlstarlet-action@v1.1
+        with: ed --inplace -P -u "/Project/PropertyGroup/TimeZoneDataVersion/@Value" -v ${{ steps.version.outputs.content }} src/System.Runtime.TimeZoneData/System.Runtime.TimeZoneData.csproj         
