@@ -24,7 +24,7 @@ jobs:
         with:
           dotnet-version: 5.0.100-rc.2.20479.15
       - name: Build with dotnet
-        run: dotnet build src/System.Runtime/TimeZoneData /t:CheckVersion 
+        run: dotnet build src/System.Runtime.TimeZoneData /t:CheckVersion 
 #       - name: Edit XML
 #         uses: Mudlet/xmlstarlet-action@v1.1
       - name: Read version
