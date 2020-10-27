@@ -32,4 +32,5 @@ jobs:
           path: ./src/System.Runtime.TimeZoneData/data/version
       - name: Edit XML
         uses: Mudlet/xmlstarlet-action@v1.1
-        with: ed --inplace -P -u "/Project/PropertyGroup/TimeZoneDataVersion/@Value" -v ${{ steps.version.outputs.content }} src/System.Runtime.TimeZoneData/System.Runtime.TimeZoneData.csproj         
+        with: 
+          args: ed --inplace -P -u "/Project/PropertyGroup/TimeZoneDataVersion/@Value" -v ${{ steps.version.outputs.content }} src/System.Runtime.TimeZoneData/System.Runtime.TimeZoneData.csproj         
