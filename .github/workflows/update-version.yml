@@ -24,15 +24,13 @@ jobs:
         with:
           dotnet-version: 5.0.100-rc.2.20479.15
       - name: Build with dotnet
-        run: dotnet build --project src/System.Runtime/TimeZoneData /t:CheckVersio 
+        run: dotnet build src/System.Runtime/TimeZoneData /t:CheckVersion 
 #       - name: Edit XML
 #         uses: Mudlet/xmlstarlet-action@v1.1
-#       - name: Read version
-#         id: version
-#         uses: juliangruber/read-file-action@v1
-#         with:
-#           path: ./src/System.Runtime.TimeZoneData/data/version
-
-
-      # - name: Set version from file
-      #   run: echo {{ steps.version.outputs.content }}            
+      - name: Read version
+        id: version
+        uses: juliangruber/read-file-action@v1
+        with:
+          path: ./src/System.Runtime.TimeZoneData/data/version
+      - name: Set version from file
+        run: echo {{ steps.version.outputs.content }}            
