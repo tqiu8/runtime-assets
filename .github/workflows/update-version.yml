@@ -33,4 +33,7 @@ jobs:
       - name: Edit XML
         uses: Mudlet/xmlstarlet-action@v1.1
         with: 
-          args: ed --inplace -P -u "/Project/PropertyGroup/TimeZoneDataVersion/@Value" -v ${{ steps.version.outputs.content }} src/System.Runtime.TimeZoneData/System.Runtime.TimeZoneData.csproj         
+          args: ed --inplace -P -u "/Project/PropertyGroup/TimeZoneDataVersion/@Value" -v ${{ steps.version.outputs.content }} src/System.Runtime.TimeZoneData/System.Runtime.TimeZoneData.csproj   
+      - name: Create Pull Request
+        id: cpr
+        uses: peter-evans/create-pull-request@v3       
