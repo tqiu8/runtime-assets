@@ -1,6 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TimeZoneDataVersion>2020a</TimeZoneDataVersion>
+    <TimeZoneDataVersion>2020d</TimeZoneDataVersion>
     <OutputFolder>$(MSBuildProjectDirectory)/data</OutputFolder>
     <UpdateCondition>false</UpdateCondition>
   </PropertyGroup>
@@ -36,6 +36,10 @@
     </DownloadFile>
     <DownloadFile 
       SourceUrl="https://data.iana.org/time-zones/tzdb-$(TimeZoneDataVersion)/zone1970.tab" 
+      DestinationFolder="$(OutputFolder)">
+    </DownloadFile>
+    <DownloadFile
+      SourceUrl="https://data.iana.org/time-zones/tzdb-$(TimeZoneDataVersion)/backward"
       DestinationFolder="$(OutputFolder)">
     </DownloadFile>
   </Target>
