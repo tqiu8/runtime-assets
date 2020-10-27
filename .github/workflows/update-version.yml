@@ -29,6 +29,6 @@ jobs:
 
       # Check for updates to Timezone version
       - name: Check for updates
-        run: dotnet build /t:CheckVersion
-      - name: Set version from file
-        run: echo {{ steps.version.outputs.content }}            
+        run: dotnet build --project src/System.Runtime/TimeZoneData /t:CheckVersion
+      # - name: Set version from file
+      #   run: echo {{ steps.version.outputs.content }}            
